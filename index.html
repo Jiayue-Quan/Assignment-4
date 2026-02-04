@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>To-Do List</title>
+</head>
+<body>
+  <div class="todo-app">
+    <h1>To-Do List</h1>
+
+    <form class="todo-input" onsubmit="newTodo(this.value)">
+      <input type="text" placeholder="Add a new task…" />
+      <button type="submit">Add</button>
+    </form>
+
+    <ul class="todo-list">
+      <li class="todo-item">
+        <input type="checkbox" />
+        <span>Example task</span>
+      </li>
+      <li class="todo-item">
+        <input type="checkbox" />
+        <span>Another task</span>
+      </li>
+    </ul>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
