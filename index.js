@@ -1,8 +1,6 @@
 const API = "http://localhost:3000";
 
 
-
-
 function getCookie(name) {
   var cookies = document.cookie.split(";");
 
@@ -120,6 +118,11 @@ function renderTodos(todos) {
     var span = document.createElement("span");
     span.textContent = todo.title;
 
+    span.addEventListener("click", function () {
+      checkbox.checked = !checkbox.checked;
+      toggleTodo(todo.id, checkbox.checked);
+    });
+
     // Edit button
     var editBtn = document.createElement("button");
     editBtn.textContent = "✎";
@@ -144,9 +147,8 @@ function renderTodos(todos) {
 }
 
 
-async function newTodo(value) {
-  preventDefault();
-
+async function newTodo(event) {
+  event.preventDefault();
   var input = document.querySelector(".todo-input input");
   var title = input.value.trim();
 
@@ -177,6 +179,7 @@ async function toggleTodo(id, completed) {
       headers: authHeaders,
       body: JSON.stringify({ completed: completed })
     });
+    
   } catch (err) {
     console.error(err);
   }
